@@ -30,29 +30,34 @@ if (!fs.existsSync(sqliteZip)) {
 
 let gradle = fs.readFileSync(gradlePath, "utf8");
 
-const remoteLine =
+const oldRemote =
   'src("https://www.sqlite.org/2024/sqlite-amalgamation-${SQLITE_VERSION}.zip")';
 
-const localLine =
+const oldLocal =
   'src(new File(project.projectDir, "../../../sqlite-downloads/sqlite-amalgamation-${SQLITE_VERSION}.zip"))';
 
-if (gradle.includes(localLine)) {
+const newLocal =
+  'src(new File(project.projectDir, "../../../sqlite-downloads/sqlite-amalgamation-${SQLITE_VERSION}.zip").toURI().toURL())';
+
+if (gradle.includes(newLocal)) {
   console.log("SENTINEL SQLite patch: already applied");
   process.exit(0);
 }
 
-if (!gradle.includes(remoteLine)) {
+if (gradle.includes(oldLocal)) {
+  gradle = gradle.replace(oldLocal, newLocal);
+} else if (gradle.includes(oldRemote)) {
+  gradle = gradle.replace(oldRemote, newLocal);
+} else {
   throw new Error(
-    "Expected expo-sqlite SQLite download line was not found. Refusing to modify the file."
+    "Expected expo-sqlite SQLite download source was not found. Refusing to modify the file."
   );
 }
-
-gradle = gradle.replace(remoteLine, localLine);
 
 fs.writeFileSync(gradlePath, gradle);
 
 console.log("==============================================");
 console.log("SENTINEL SQLite patch: SUCCESS");
-console.log("Using bundled SQLite ZIP instead of sqlite.org");
+console.log("Using bundled SQLite ZIP as a file URL");
 console.log(sqliteZip);
 console.log("==============================================");
