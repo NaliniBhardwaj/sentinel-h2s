@@ -6,10 +6,18 @@
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
     "scheme": "sentinel",
-    "platforms": ["android", "ios", "web"],
+    "platforms": [
+      "android",
+      "ios",
+      "web"
+    ],
     "android": {
       "package": "com.sentinel.h2sdosimeter",
-      "permissions": ["CAMERA"],
+      "permissions": [
+        "CAMERA",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ],
       "adaptiveIcon": {
         "backgroundColor": "#0E1512"
       }
@@ -32,7 +40,10 @@
       ]
     ],
     "extra": {
-      "apiUrl": "https://sentinel-h2s.onrender.com"
+      "apiUrl": "https://sentinel-h2s.onrender.com",
+      "eas": {
+        "projectId": "ece1a3fa-b4f0-4d03-bdbd-7fe21716aa7f"
+      }
     }
   }
 }

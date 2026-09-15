@@ -8,7 +8,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "eas-build-post-install": "node patch-expo-sqlite.js"
   },
   "dependencies": {
     "@expo/metro-runtime": "~3.2.3",
