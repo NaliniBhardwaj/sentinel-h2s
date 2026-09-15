@@ -4,3 +4,5 @@ backend/venv/
 mobile/node_modules/
 mobile/.expo/
 
+
+mobile/.env
