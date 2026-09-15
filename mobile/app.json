@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "SENTINEL",
+    "slug": "sentinel-h2s",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "scheme": "sentinel",
+    "platforms": ["android", "ios", "web"],
+    "android": {
+      "package": "com.sentinel.h2sdosimeter",
+      "permissions": ["CAMERA"],
+      "adaptiveIcon": {
+        "backgroundColor": "#0E1512"
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "com.sentinel.h2sdosimeter",
+      "infoPlist": {
+        "NSCameraUsageDescription": "SENTINEL uses the camera to scan strip QR codes and capture colorimetric strip images for exposure estimation."
+      }
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "SENTINEL uses the camera to scan strip QR codes and capture colorimetric strip photos."
+        }
+      ]
+    ],
+    "extra": {
+      "apiUrl": "http://10.0.2.2:8000"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+
+backend/.env
+backend/venv/
+mobile/node_modules/
+mobile/.expo/
+

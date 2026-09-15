@@ -1,0 +1,52 @@
+{
+  "model_version": "SENTINEL-H2S-v1",
+  "feature_schema_version": "v2-strip-card",
+  "dataset_type": "synthetic_development",
+  "overall_test_holdout": {
+    "mae": 3.442872023809524,
+    "rmse": 4.317334369874686,
+    "r2": 0.9821382771772407,
+    "samples": 42
+  },
+  "by_split": {
+    "holdout": {
+      "mae": 3.7743132716049383,
+      "rmse": 4.562890829876706,
+      "r2": 0.9801481131164779,
+      "samples": 27
+    },
+    "test": {
+      "mae": 2.8462777777777775,
+      "rmse": 3.8359225834174784,
+      "r2": 0.9855364003283366,
+      "samples": 15
+    }
+  },
+  "by_lighting": {
+    "fluorescent": {
+      "mae": 3.7743132716049383,
+      "rmse": 4.562890829876706,
+      "r2": 0.9801481131164779,
+      "samples": 27
+    },
+    "dim_indoor": {
+      "mae": 2.9240000000000013,
+      "rmse": 3.4245046985740224,
+      "r2": 0.9911425736929339,
+      "samples": 5
+    },
+    "daylight": {
+      "mae": 3.11455357142857,
+      "rmse": 4.502883369259387,
+      "r2": 0.9777983916598774,
+      "samples": 7
+    },
+    "LED": {
+      "mae": 2.090763888888888,
+      "rmse": 2.5914383635821565,
+      "r2": 0.990911281935307,
+      "samples": 3
+    }
+  },
+  "disclaimer": "Metrics on synthetic Tier-B development dataset \u2014 not lab-validated real-world accuracy."
+}
